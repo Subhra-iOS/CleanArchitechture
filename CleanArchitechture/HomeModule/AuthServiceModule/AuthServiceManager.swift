@@ -7,8 +7,11 @@
 
 import Foundation
 
-struct AuthServiceManager {
-    
+protocol AuthServiceProtocol {
+    func authenticate(user: AuthModel, handler: @escaping (_ statusCode: Int, _ userJSONModel: UserJson) -> Void) -> Void
+}
+
+extension  AuthServiceProtocol {
     func authenticate(user: AuthModel, handler: @escaping (_ statusCode: Int, _ userJSONModel: UserJson) -> Void) -> Void {
         DispatchQueue.global(qos: .background).asyncAfter(deadline: .now()) {
             handler(200, UserJson(email: user.email.value, userId: "123", authToken: "AVGFYDE42167HJJEFJESWDGCXHKWWLL"))

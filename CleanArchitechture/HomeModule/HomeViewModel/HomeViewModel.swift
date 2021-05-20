@@ -51,7 +51,8 @@ final class AuthModel {
     
 }
 
-final class HomeViewModel {
+final class HomeViewModel: AuthServiceProtocol {
+    
     public var userAuth: AuthModel!
     public var authSuccess : () -> Void
     
@@ -69,7 +70,7 @@ final class HomeViewModel {
         self.userAuth.email.value = user.email
         self.userAuth.password.value = user.password
         
-        AuthServiceManager().authenticate(user: self.userAuth) { [weak self] (state, userModel) in
+        self.authenticate(user: self.userAuth) { [weak self] (state, userModel) in
             guard let weakSelf = self else {
                 completion(nil)
                 return
