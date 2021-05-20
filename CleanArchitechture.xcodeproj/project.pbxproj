@@ -15,6 +15,13 @@
 		2A766AB82656375000455E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A766AB62656375000455E17 /* LaunchScreen.storyboard */; };
 		2A766AC32656375000455E17 /* CleanArchitechtureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766AC22656375000455E17 /* CleanArchitechtureTests.swift */; };
 		2A766ACE2656375000455E17 /* CleanArchitechtureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766ACD2656375000455E17 /* CleanArchitechtureUITests.swift */; };
+		2A766AE926565BE800455E17 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766AE826565BE800455E17 /* HomeViewModel.swift */; };
+		2A766AF226565CF500455E17 /* GenericObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766AF126565CF500455E17 /* GenericObserver.swift */; };
+		2A766AFA26566F7600455E17 /* UserAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766AF926566F7600455E17 /* UserAuthTests.swift */; };
+		2A766B002656738800455E17 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766AFF2656738800455E17 /* UserDataModel.swift */; };
+		2A766B072656765B00455E17 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766B062656765B00455E17 /* ListViewController.swift */; };
+		2A766B0D265678A900455E17 /* AuthServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766B0C265678A900455E17 /* AuthServiceManager.swift */; };
+		2A766B152656875400455E17 /* UIViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766B142656875400455E17 /* UIViewController+Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		2A766AC92656375000455E17 /* CleanArchitechtureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchitechtureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A766ACD2656375000455E17 /* CleanArchitechtureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanArchitechtureUITests.swift; sourceTree = "<group>"; };
 		2A766ACF2656375000455E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A766AE826565BE800455E17 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2A766AF126565CF500455E17 /* GenericObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericObserver.swift; sourceTree = "<group>"; };
+		2A766AF926566F7600455E17 /* UserAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthTests.swift; sourceTree = "<group>"; };
+		2A766AFF2656738800455E17 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
+		2A766B062656765B00455E17 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2A766B0C265678A900455E17 /* AuthServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceManager.swift; sourceTree = "<group>"; };
+		2A766B142656875400455E17 /* UIViewController+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +113,10 @@
 		2A766AAA2656374D00455E17 /* CleanArchitechture */ = {
 			isa = PBXGroup;
 			children = (
-				2A766AAB2656374D00455E17 /* AppDelegate.swift */,
-				2A766AAD2656374D00455E17 /* SceneDelegate.swift */,
-				2A766AAF2656374D00455E17 /* ViewController.swift */,
+				2A766AF026565CAE00455E17 /* Utility */,
+				2A766AE126565B7800455E17 /* AppDelegate */,
+				2A766B042656762900455E17 /* ListModule */,
+				2A766AE626565BAD00455E17 /* HomeModule */,
 				2A766AB12656374D00455E17 /* Main.storyboard */,
 				2A766AB42656375000455E17 /* Assets.xcassets */,
 				2A766AB62656375000455E17 /* LaunchScreen.storyboard */,
@@ -114,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				2A766AC22656375000455E17 /* CleanArchitechtureTests.swift */,
+				2A766AF926566F7600455E17 /* UserAuthTests.swift */,
 				2A766AC42656375000455E17 /* Info.plist */,
 			);
 			path = CleanArchitechtureTests;
@@ -126,6 +142,83 @@
 				2A766ACF2656375000455E17 /* Info.plist */,
 			);
 			path = CleanArchitechtureUITests;
+			sourceTree = "<group>";
+		};
+		2A766AE126565B7800455E17 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2A766AAB2656374D00455E17 /* AppDelegate.swift */,
+				2A766AAD2656374D00455E17 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		2A766AE526565B8400455E17 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A766AAF2656374D00455E17 /* ViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		2A766AE626565BAD00455E17 /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				2A766B0B2656788F00455E17 /* AuthServiceModule */,
+				2A766AFE2656737100455E17 /* UserDataModel */,
+				2A766AE726565BD300455E17 /* HomeViewModel */,
+				2A766AE526565B8400455E17 /* HomeViewController */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		2A766AE726565BD300455E17 /* HomeViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2A766AE826565BE800455E17 /* HomeViewModel.swift */,
+			);
+			path = HomeViewModel;
+			sourceTree = "<group>";
+		};
+		2A766AF026565CAE00455E17 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2A766AF126565CF500455E17 /* GenericObserver.swift */,
+				2A766B142656875400455E17 /* UIViewController+Utility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2A766AFE2656737100455E17 /* UserDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				2A766AFF2656738800455E17 /* UserDataModel.swift */,
+			);
+			path = UserDataModel;
+			sourceTree = "<group>";
+		};
+		2A766B042656762900455E17 /* ListModule */ = {
+			isa = PBXGroup;
+			children = (
+				2A766B052656764200455E17 /* ListViewController */,
+			);
+			path = ListModule;
+			sourceTree = "<group>";
+		};
+		2A766B052656764200455E17 /* ListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A766B062656765B00455E17 /* ListViewController.swift */,
+			);
+			path = ListViewController;
+			sourceTree = "<group>";
+		};
+		2A766B0B2656788F00455E17 /* AuthServiceModule */ = {
+			isa = PBXGroup;
+			children = (
+				2A766B0C265678A900455E17 /* AuthServiceManager.swift */,
+			);
+			path = AuthServiceModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +351,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A766B002656738800455E17 /* UserDataModel.swift in Sources */,
+				2A766B0D265678A900455E17 /* AuthServiceManager.swift in Sources */,
 				2A766AB02656374D00455E17 /* ViewController.swift in Sources */,
+				2A766AF226565CF500455E17 /* GenericObserver.swift in Sources */,
 				2A766AAC2656374D00455E17 /* AppDelegate.swift in Sources */,
 				2A766AAE2656374D00455E17 /* SceneDelegate.swift in Sources */,
+				2A766AE926565BE800455E17 /* HomeViewModel.swift in Sources */,
+				2A766B072656765B00455E17 /* ListViewController.swift in Sources */,
+				2A766B152656875400455E17 /* UIViewController+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A766AFA26566F7600455E17 /* UserAuthTests.swift in Sources */,
 				2A766AC32656375000455E17 /* CleanArchitechtureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
