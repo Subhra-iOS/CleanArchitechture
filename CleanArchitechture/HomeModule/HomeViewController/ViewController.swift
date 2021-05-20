@@ -33,8 +33,8 @@ class ViewController: UIViewController {
     @IBAction func redirectToList(_ sender: Any) {
         let userAuth: UserDataModel = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "123456")
         self.homeViewModel?.serverAuthenticationWith(user: userAuth, completion: { [weak self] (userModel) in
+            self?.userDataModel.update(user: userModel)
             self?.getCurrentWorkingThread{
-                self?.userDataModel.update(user: userModel)
                 self?.homeViewModel?.authSuccess()
             }
         })
