@@ -52,6 +52,33 @@ class UserAuthTests: XCTestCase {
         })
     }
     
+    func test_CreatUserDataModel_Success(){
+        let userDataModel = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "", token: "AVGFYDE42167HJJEFJESWDGCXHKWWLL", userid: "123")
+        if userDataModel.authenticationSucceed(){
+            XCTAssert(true)
+        }else{
+            XCTAssert(false)
+        }
+    }
+    
+    func test_CreatUserDataModel_Fail(){
+        let userDataModel = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "", token: nil, userid: nil)
+        if !userDataModel.authenticationSucceed(){
+            XCTAssertNil(userDataModel.userToken)
+        }else{
+            XCTAssertFalse(true)
+        }
+    }
+    
+    func test_UserDataModel_Update(){
+        var userDataModel1 = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "", token: nil, userid: nil)
+        let userDataModel2 = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "", token: "AVGFYDE42167HJJEFJESWDGCXHKWWLL", userid: "123")
+        userDataModel1.update(user: userDataModel2)
+        XCTAssertEqual(userDataModel1.userToken, "AVGFYDE42167HJJEFJESWDGCXHKWWLL", "User has been updated")
+        XCTAssertEqual(userDataModel1.userID, "123", "User has been updated")
+    }
+    
+    
     func test_authenticateUserSuccess(){
         var userData: UserDataModel = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "123456")
         let expect = expectation(description: "Auth success service")
