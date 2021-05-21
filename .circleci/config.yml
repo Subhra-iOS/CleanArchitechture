@@ -21,3 +21,4 @@ jobs:
       - store_artifacts:
           path: test_output
           destination: scan-output
+
