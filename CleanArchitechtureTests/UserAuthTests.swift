@@ -105,6 +105,10 @@ class UserAuthTests: XCTestCase {
     }
     
     func test_authenticateUserFail(){
+        
+        /*var statusCode: Int?
+        var responseError: Error?
+        */
         var userData: UserDataModel = UserDataModel(_email: "", _password: "")
         
         let expect = expectation(description: "Auth fail service")
@@ -130,5 +134,8 @@ class UserAuthTests: XCTestCase {
        /* waitForExpectations(timeout: 1.0) { (error) in
             
         }*/
+        //For actual server call once status code received
+       // XCTAssertNil(responseError)
+       // XCTAssertEqual(statusCode, 200)
     }
 }
