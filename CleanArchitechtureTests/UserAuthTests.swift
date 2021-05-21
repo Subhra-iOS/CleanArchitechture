@@ -85,19 +85,23 @@ class UserAuthTests: XCTestCase {
         let homeViewModel: HomeViewModel = HomeViewModel(authModel: AuthModel(email: "", pwd: "")) {
             if userData.authenticationSucceed() {
                 XCTAssertEqual(userData.userToken, "AVGFYDE42167HJJEFJESWDGCXHKWWLL")
-            }else{
-                XCTAssertNotNil(userData.userToken)
+                expect.fulfill()
+            } else  {
+                 XCTAssertNotNil(userData.userToken)
             }
-            expect.fulfill()
         }
         homeViewModel.serverAuthenticationWith(user: userData, completion: {  (userModel) in
-            userData.update(user: userModel)
-            homeViewModel.authSuccess()
+            if let result = userModel{
+                userData.update(user: result)
+                homeViewModel.authSuccess()
+            }else{
+                XCTFail("Error in server call")
+            }
         })
-        
-        waitForExpectations(timeout: 1.0) { (error) in
+        wait(for: [expect], timeout: 1.0)
+       /* waitForExpectations(timeout: 1.0) { (error) in
             
-        }
+        }*/
     }
     
     func test_authenticateUserFail(){
@@ -109,16 +113,22 @@ class UserAuthTests: XCTestCase {
                 XCTAssertEqual(userData.userToken, "AVGFYDE42167HJJEFJESWDGCXHKWWLL")
             }else{
                 XCTAssertNil(userData.userToken)
+                expect.fulfill()
             }
-            expect.fulfill()
-        }
-        homeViewModel.serverAuthenticationWith(user: userData, completion: {  (userModel) in
-            userData.update(user: userModel)
-            homeViewModel.authSuccess()
-        })
-        
-        waitForExpectations(timeout: 1.0) { (error) in
             
         }
+        homeViewModel.serverAuthenticationWith(user: userData, completion: {  (userModel) in
+            //if let result = userModel{
+                userData.update(user: userModel)
+                homeViewModel.authSuccess()
+            /*}else{
+                XCTFail("Error in server call")
+            }*/
+        })
+        
+        wait(for: [expect], timeout: 1.0)
+       /* waitForExpectations(timeout: 1.0) { (error) in
+            
+        }*/
     }
 }
