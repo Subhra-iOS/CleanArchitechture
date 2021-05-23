@@ -9,13 +9,21 @@ import XCTest
 @testable import CleanArchitechture
 
 class UserAuthTests: XCTestCase {
-
+    var _viewController: ViewController!
+    var homeViewModel: HomeViewModel!
+    var service: AuthServiceProtocol?
+    var userData: UserDataModel!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        _viewController = nil
+        homeViewModel = nil
+        service = nil
+        userData = nil
     }
 
     func testExample() throws {
@@ -80,28 +88,26 @@ class UserAuthTests: XCTestCase {
     
     
     func test_authenticateUserSuccess(){
-        var userData: UserDataModel = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "123456")
-        let expect = expectation(description: "Auth success service")
-        let homeViewModel: HomeViewModel = HomeViewModel(authModel: AuthModel(email: "", pwd: "")) {
-            if userData.authenticationSucceed() {
-                XCTAssertEqual(userData.userToken, "AVGFYDE42167HJJEFJESWDGCXHKWWLL")
-                expect.fulfill()
+        
+        let expect = XCTestExpectation(description: "Auth success service")
+        _viewController = ViewController()
+        userData = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "123456")
+        homeViewModel = HomeViewModel(authModel: AuthModel(email: "", pwd: "")) {
+            if self.userData.authenticationSucceed() {
+                XCTAssertEqual(self.userData.userToken, "AVGFYDE42167HJJEFJESWDGCXHKWWLL")
             } else  {
-                 XCTAssertNotNil(userData.userToken)
+                XCTAssertNotNil(self.userData.userToken)
             }
+            expect.fulfill()
         }
-        homeViewModel.serverAuthenticationWith(user: userData, completion: {  (userModel) in
-            if let result = userModel{
-                userData.update(user: result)
-                homeViewModel.authSuccess()
-            }else{
-                XCTFail("Error in server call")
-            }
-        })
-        wait(for: [expect], timeout: 1.0)
-       /* waitForExpectations(timeout: 1.0) { (error) in
-            
-        }*/
+        self.service = _viewController.triggerAuthService(user: userData)
+        guard let adapterService = self.service else {
+            return
+        }
+        adapterService.authenticate(handler: self.testhandlerResult)
+        
+        wait(for: [expect], timeout: 2.0)
+      
     }
     
     func test_authenticateUserFail(){
@@ -109,33 +115,36 @@ class UserAuthTests: XCTestCase {
         /*var statusCode: Int?
         var responseError: Error?
         */
-        var userData: UserDataModel = UserDataModel(_email: "", _password: "")
-        
-        let expect = expectation(description: "Auth fail service")
-        let homeViewModel: HomeViewModel = HomeViewModel(authModel: AuthModel(email: "", pwd: "")) {
-            if userData.authenticationSucceed() {
-                XCTAssertEqual(userData.userToken, "AVGFYDE42167HJJEFJESWDGCXHKWWLL")
+        let expect = XCTestExpectation(description: "Auth fail service")
+        _viewController = ViewController()
+        userData = UserDataModel(_email: "", _password: "")
+         homeViewModel = HomeViewModel(authModel: AuthModel(email: "", pwd: "")) {
+            if self.userData.authenticationSucceed() {
+                XCTAssertEqual(self.userData.userToken, "AVGFYDE42167HJJEFJESWDGCXHKWWLL")
             }else{
-                XCTAssertNil(userData.userToken)
-                expect.fulfill()
+                XCTAssertNil(self.userData.userToken)
             }
-            
+            expect.fulfill()
         }
-        homeViewModel.serverAuthenticationWith(user: userData, completion: {  (userModel) in
-            //if let result = userModel{
-                userData.update(user: userModel)
-                homeViewModel.authSuccess()
-            /*}else{
-                XCTFail("Error in server call")
-            }*/
-        })
+        self.service = _viewController.triggerAuthService(user: userData)
+        guard let adapterService = self.service else {
+            return
+        }
+        adapterService.authenticate(handler: self.testhandlerResult)
         
-        wait(for: [expect], timeout: 1.0)
-       /* waitForExpectations(timeout: 1.0) { (error) in
-            
-        }*/
+        wait(for: [expect], timeout: 2.0)
+        
         //For actual server call once status code received
        // XCTAssertNil(responseError)
        // XCTAssertEqual(statusCode, 200)
+    }
+    
+    private func testhandlerResult(_ userModel: UserDataModel?) -> Void{
+        if let result = userModel{
+            userData.update(user: result)
+            homeViewModel.authSuccess()
+        }else{
+            XCTFail("Error in server call")
+        }
     }
 }
