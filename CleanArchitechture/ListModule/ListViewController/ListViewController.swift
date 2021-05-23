@@ -21,4 +21,11 @@ class ListViewController: UIViewController{
     required init?(coder: NSCoder) {
         fatalError("You must create this view controller with a user.")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("\(String(describing: self.userModel?.email))")
+        print("\(String(describing: self.userModel?.userToken))")
+        print("\(String(describing: self.userModel?.userID))")
+    }
 }

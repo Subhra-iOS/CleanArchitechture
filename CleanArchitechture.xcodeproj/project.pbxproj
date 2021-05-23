@@ -22,6 +22,8 @@
 		2A766B072656765B00455E17 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766B062656765B00455E17 /* ListViewController.swift */; };
 		2A766B0D265678A900455E17 /* AuthServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766B0C265678A900455E17 /* AuthServiceManager.swift */; };
 		2A766B152656875400455E17 /* UIViewController+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A766B142656875400455E17 /* UIViewController+Utility.swift */; };
+		2A89B0762659424A008C6220 /* AuthServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89B0752659424A008C6220 /* AuthServiceAdapter.swift */; };
+		2A89B07B26594772008C6220 /* ViewController+Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A89B07A26594772008C6220 /* ViewController+Services.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		2A766B062656765B00455E17 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		2A766B0C265678A900455E17 /* AuthServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceManager.swift; sourceTree = "<group>"; };
 		2A766B142656875400455E17 /* UIViewController+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utility.swift"; sourceTree = "<group>"; };
+		2A89B0752659424A008C6220 /* AuthServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceAdapter.swift; sourceTree = "<group>"; };
+		2A89B07A26594772008C6220 /* ViewController+Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Services.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				2A766AAF2656374D00455E17 /* ViewController.swift */,
+				2A89B07A26594772008C6220 /* ViewController+Services.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				2A766B0C265678A900455E17 /* AuthServiceManager.swift */,
+				2A89B0752659424A008C6220 /* AuthServiceAdapter.swift */,
 			);
 			path = AuthServiceModule;
 			sourceTree = "<group>";
@@ -356,10 +362,12 @@
 				2A766AB02656374D00455E17 /* ViewController.swift in Sources */,
 				2A766AF226565CF500455E17 /* GenericObserver.swift in Sources */,
 				2A766AAC2656374D00455E17 /* AppDelegate.swift in Sources */,
+				2A89B07B26594772008C6220 /* ViewController+Services.swift in Sources */,
 				2A766AAE2656374D00455E17 /* SceneDelegate.swift in Sources */,
 				2A766AE926565BE800455E17 /* HomeViewModel.swift in Sources */,
 				2A766B072656765B00455E17 /* ListViewController.swift in Sources */,
 				2A766B152656875400455E17 /* UIViewController+Utility.swift in Sources */,
+				2A89B0762659424A008C6220 /* AuthServiceAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

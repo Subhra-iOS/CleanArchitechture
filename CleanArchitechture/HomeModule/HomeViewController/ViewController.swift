@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var homeViewModel: HomeViewModel?
-    private var userDataModel: UserDataModel = UserDataModel(_email: "", _password: "")
-    
+    var homeViewModel: HomeViewModel?
+    var userDataModel: UserDataModel = UserDataModel(_email: "", _password: "")
+    var service: AuthServiceProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,12 +33,22 @@ class ViewController: UIViewController {
 
     @IBAction func redirectToList(_ sender: Any) {
         let userAuth: UserDataModel = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "123456")
-        self.homeViewModel?.serverAuthenticationWith(user: userAuth, completion: { [weak self] (userModel) in
-            self?.userDataModel.update(user: userModel)
-            self?.getCurrentWorkingThread{
-                self?.homeViewModel?.authSuccess()
-            }
-        })
+        self.service = self.triggerAuthService(user: userAuth)
+        guard let adapterService = self.service else {
+            return
+        }
+        adapterService.authenticate(handler: self.handlerResult)
+    }
+    
+}
+
+extension ViewController {
+    
+    fileprivate func handlerResult(_ userModel: UserDataModel?) -> Void{
+        self.userDataModel.update(user: userModel)
+        self.getCurrentWorkingThread{ [weak self]  in 
+            self?.homeViewModel?.authSuccess()
+        }
     }
     
 }

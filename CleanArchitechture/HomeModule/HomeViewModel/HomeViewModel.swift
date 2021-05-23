@@ -51,7 +51,7 @@ final class AuthModel {
     
 }
 
-final class HomeViewModel: AuthServiceProtocol {
+final class HomeViewModel {
     
     public var userAuth: AuthModel!
     public var authSuccess : () -> Void
@@ -61,27 +61,13 @@ final class HomeViewModel: AuthServiceProtocol {
         self.authSuccess = success
     }
     
-    func serverAuthenticationWith(user: UserDataModel, completion: @escaping (_ user: UserDataModel?) -> Void){
-        
+    func updateAuth(user: UserDataModel) -> AuthModel?{
         guard user.isValidUserEntry() else {
-            completion(nil)
-            return
+            return nil
         }
         self.userAuth.email.value = user.email
         self.userAuth.password.value = user.password
-        
-        self.authenticate(user: self.userAuth) { [weak self] (state, userModel) in
-            guard let weakSelf = self else {
-                completion(nil)
-                return
-            }
-            guard weakSelf.userAuth.isValid(email: user.email), weakSelf.userAuth.isValid(password: user.password) else{
-                completion(nil)
-                return
-            }
-            let userDataModel: UserDataModel = UserDataModel(_email: userModel.email, _password: "", token: userModel.authToken, userid: userModel.userId)
-            completion(userDataModel)
-        }
+        return self.userAuth
     }
     
 }
