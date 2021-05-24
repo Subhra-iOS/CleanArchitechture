@@ -16,6 +16,7 @@ class UserAuthTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        _viewController = ViewController()
     }
 
     override func tearDownWithError() throws {
@@ -90,7 +91,6 @@ class UserAuthTests: XCTestCase {
     func test_authenticateUserSuccess(){
         
         let expect = XCTestExpectation(description: "Auth success service")
-        _viewController = ViewController()
         userData = UserDataModel(_email: "subhra.roy@e-arc.com", _password: "123456")
         homeViewModel = HomeViewModel(authModel: AuthModel(email: "", pwd: "")) {
             if self.userData.authenticationSucceed() {
@@ -116,7 +116,6 @@ class UserAuthTests: XCTestCase {
         var responseError: Error?
         */
         let expect = XCTestExpectation(description: "Auth fail service")
-        _viewController = ViewController()
         userData = UserDataModel(_email: "", _password: "")
          homeViewModel = HomeViewModel(authModel: AuthModel(email: "", pwd: "")) {
             if self.userData.authenticationSucceed() {
