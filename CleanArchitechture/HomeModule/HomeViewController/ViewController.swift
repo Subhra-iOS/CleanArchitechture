@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         }
         adapterService.authenticate(handler: self.handlerResult)
     }
-    
 }
 
 extension ViewController {
@@ -53,4 +52,17 @@ extension ViewController {
     
 }
 
-
+//MARK:-------------Navigation of any viewcontroller----------//
+extension ViewController{
+    
+    public func moveToControllerWith(userModel: UserDataModel?){
+        
+        guard let listVC : ListViewController = storyboard?.instantiateViewController(identifier: "ListViewControllerIdentifier", creator: { coder in
+            return ListViewController(coder: coder, user: userModel)
+        }) else {
+            fatalError("Failed to load ListViewController from storyboard.")
+        }
+        showDetailViewController(listVC, sender: self)
+    }
+    
+}
