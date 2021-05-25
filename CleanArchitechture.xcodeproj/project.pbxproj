@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A66EB53265CDFBA00A24264 /* ItemListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66EB52265CDFBA00A24264 /* ItemListTests.swift */; };
 		2A6ADD08265BB1F80038807A /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6ADD07265BB1F80038807A /* ListViewModel.swift */; };
 		2A6ADD0D265BB2B80038807A /* ListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6ADD0C265BB2B80038807A /* ListItemModel.swift */; };
 		2A6ADD14265BB3F20038807A /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6ADD12265BB3F20038807A /* ListTableViewCell.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A66EB52265CDFBA00A24264 /* ItemListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTests.swift; sourceTree = "<group>"; };
 		2A6ADD07265BB1F80038807A /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		2A6ADD0C265BB2B80038807A /* ListItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemModel.swift; sourceTree = "<group>"; };
 		2A6ADD12265BB3F20038807A /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				2A766AC22656375000455E17 /* CleanArchitechtureTests.swift */,
 				2A766AF926566F7600455E17 /* UserAuthTests.swift */,
+				2A66EB52265CDFBA00A24264 /* ItemListTests.swift */,
 				2A766AC42656375000455E17 /* Info.plist */,
 			);
 			path = CleanArchitechtureTests;
@@ -456,6 +459,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A766AFA26566F7600455E17 /* UserAuthTests.swift in Sources */,
+				2A66EB53265CDFBA00A24264 /* ItemListTests.swift in Sources */,
 				2A766AC32656375000455E17 /* CleanArchitechtureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

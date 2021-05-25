@@ -62,7 +62,8 @@ extension ViewController{
         }) else {
             fatalError("Failed to load ListViewController from storyboard.")
         }
-        showDetailViewController(listVC, sender: self)
+       // showDetailViewController(listVC, sender: self)
+        self.navigationController?.pushViewController(listVC, animated: true)
     }
     
 }

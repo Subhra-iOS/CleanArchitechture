@@ -5,6 +5,7 @@
 //  Created by Subhra Roy on 24/05/21.
 //
 
+// Response<[ListItemModel]?, Result>
 import Foundation
 
 typealias HandleItems = (_ list: [ListItemModel]?, _ error: Result) -> Void

@@ -13,7 +13,7 @@ let cellIdentifier = "itemCellIdentifier"
 class ListViewController: UIViewController{
     
     @IBOutlet weak var listTableView: UITableView!
-    private var userModel : UserDataModel?
+    private(set) var userModel : UserDataModel?
     private(set) var itemList: [ListCellViewModel]?
     private(set) var listViewModel: ListViewModel!
     
