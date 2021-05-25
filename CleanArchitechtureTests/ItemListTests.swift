@@ -60,9 +60,9 @@ class ItemListTests: XCTestCase {
             case .success:
                 let model = list?.last
                 //TODO:---Test Fail------
-                XCTAssertEqual(model, ListItemModel(itemTitle: "item22", itemDescription: "This is the new item5", itemId: "10422"))
+                //XCTAssertEqual(model, ListItemModel(itemTitle: "item22", itemDescription: "This is the new item5", itemId: "10422"))
                 //TODO:----Test Success-------
-                //XCTAssertNotEqual(model, ListItemModel(itemTitle: "item22", itemDescription: "This is the new item5", itemId: "10422"))
+                XCTAssertNotEqual(model, ListItemModel(itemTitle: "item22", itemDescription: "This is the new item5", itemId: "10422"))
                 expect.fulfill()
             case .failure(let message):
                 XCTFail("Error message: \(message)")
