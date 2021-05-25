@@ -12,6 +12,7 @@ class ItemListTests: XCTestCase {
     var userData: UserDataModel!
     var listVC : ListViewController!
     var storyboard: UIStoryboard!
+    var expect : XCTestExpectation!
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -27,6 +28,7 @@ class ItemListTests: XCTestCase {
         userData = nil
         listVC = nil
         storyboard = nil
+        expect = nil
     }
 
     func testExample() throws {
@@ -48,7 +50,9 @@ class ItemListTests: XCTestCase {
     
     func test_generateList(){
         guard let service = listVC.fetchItemListWith(user: userData) else { return }
+        expect = XCTestExpectation(description: "List service")
         service.loadItems(results: test_handleResults)
+        wait(for: [expect], timeout: 2.0)
     }
     
     private func test_handleResults(_ list: [ListItemModel]?, _ error: Result) -> Void{
@@ -59,6 +63,7 @@ class ItemListTests: XCTestCase {
                 XCTAssertEqual(model, ListItemModel(itemTitle: "item22", itemDescription: "This is the new item5", itemId: "10422"))
                 //TODO:----Test Success-------
                 //XCTAssertNotEqual(model, ListItemModel(itemTitle: "item22", itemDescription: "This is the new item5", itemId: "10422"))
+                expect.fulfill()
             case .failure(let message):
                 XCTFail("Error message: \(message)")
         }
