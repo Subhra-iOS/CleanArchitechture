@@ -54,9 +54,9 @@ final class AuthModel {
 final class HomeViewModel {
     
     public var userAuth: AuthModel!
-    public var authSuccess : () -> Void
+    public var authSuccess : (UserDataModel) -> Void
     
-    init(authModel: AuthModel, success: @escaping (() -> Void)) {
+    init(authModel: AuthModel, success: @escaping ((UserDataModel) -> Void)) {
         self.userAuth = authModel
         self.authSuccess = success
     }

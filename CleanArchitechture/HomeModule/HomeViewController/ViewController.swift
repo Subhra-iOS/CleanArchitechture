@@ -12,16 +12,19 @@ class ViewController: UIViewController {
     var homeViewModel: HomeViewModel?
     var userDataModel: UserDataModel = UserDataModel(_email: "", _password: "")
     var service: AuthServiceProtocol?
+    
+    init?(coder: NSCoder, viewModel: HomeViewModel?) {
+        self.homeViewModel = viewModel
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("You must create this view controller with a user.")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let userAuth: AuthModel = AuthModel(email: "", pwd: "")
-        self.homeViewModel = HomeViewModel(authModel: userAuth, success: { [weak self] in
-            guard let weakSelf = self else { return }
-            weakSelf.userDataModel.authenticationSucceed() ? weakSelf.moveToControllerWith(userModel: weakSelf.userDataModel) : nil
-        })
-        
         self.homeViewModel?.userAuth?.getUserEmail({ (email) in
             self.userDataModel.email = email
         })
@@ -45,25 +48,10 @@ extension ViewController {
     
     fileprivate func handlerResult(_ userModel: UserDataModel?) -> Void{
         self.userDataModel.update(user: userModel)
-        self.getCurrentWorkingThread{ [weak self]  in 
-            self?.homeViewModel?.authSuccess()
+        self.getCurrentWorkingThread{ [weak self]  in
+            guard let weakSelf = self else { return }
+            weakSelf.homeViewModel?.authSuccess(weakSelf.userDataModel)
         }
-    }
-    
-}
-
-//MARK:-------------Navigation of any viewcontroller----------//
-extension ViewController{
-    
-    public func moveToControllerWith(userModel: UserDataModel?){
-        
-        guard let listVC : ListViewController = storyboard?.instantiateViewController(identifier: "ListViewControllerIdentifier", creator: { coder in
-            return ListViewController(coder: coder, user: userModel)
-        }) else {
-            fatalError("Failed to load ListViewController from storyboard.")
-        }
-       // showDetailViewController(listVC, sender: self)
-        self.navigationController?.pushViewController(listVC, animated: true)
     }
     
 }

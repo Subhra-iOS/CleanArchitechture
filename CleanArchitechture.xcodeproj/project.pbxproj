@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A5F5231266129AA00241874 /* AppCompositionRoot+ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5F5230266129AA00241874 /* AppCompositionRoot+ViewController.swift */; };
+		2A5F523F2661430900241874 /* ControllerFactoryModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5F523E2661430900241874 /* ControllerFactoryModule.swift */; };
+		2A5F525B266150AF00241874 /* SceneDelegate+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5F525A266150AF00241874 /* SceneDelegate+Navigation.swift */; };
 		2A66EB53265CDFBA00A24264 /* ItemListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66EB52265CDFBA00A24264 /* ItemListTests.swift */; };
 		2A6ADD08265BB1F80038807A /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6ADD07265BB1F80038807A /* ListViewModel.swift */; };
 		2A6ADD0D265BB2B80038807A /* ListItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6ADD0C265BB2B80038807A /* ListItemModel.swift */; };
@@ -55,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A5F5230266129AA00241874 /* AppCompositionRoot+ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppCompositionRoot+ViewController.swift"; sourceTree = "<group>"; };
+		2A5F523E2661430900241874 /* ControllerFactoryModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerFactoryModule.swift; sourceTree = "<group>"; };
+		2A5F525A266150AF00241874 /* SceneDelegate+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Navigation.swift"; sourceTree = "<group>"; };
 		2A66EB52265CDFBA00A24264 /* ItemListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTests.swift; sourceTree = "<group>"; };
 		2A6ADD07265BB1F80038807A /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		2A6ADD0C265BB2B80038807A /* ListItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemModel.swift; sourceTree = "<group>"; };
@@ -116,6 +122,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A5F522F2661296B00241874 /* AppCompositionRoot */ = {
+			isa = PBXGroup;
+			children = (
+				2A5F5230266129AA00241874 /* AppCompositionRoot+ViewController.swift */,
+			);
+			path = AppCompositionRoot;
+			sourceTree = "<group>";
+		};
+		2A5F523D266142E000241874 /* ControllerFactoryModule */ = {
+			isa = PBXGroup;
+			children = (
+				2A5F523E2661430900241874 /* ControllerFactoryModule.swift */,
+			);
+			path = ControllerFactoryModule;
+			sourceTree = "<group>";
+		};
 		2A6ADD03265BB16B0038807A /* ListViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +203,9 @@
 		2A766AAA2656374D00455E17 /* CleanArchitechture */ = {
 			isa = PBXGroup;
 			children = (
+				2A5F523D266142E000241874 /* ControllerFactoryModule */,
 				2A766AF026565CAE00455E17 /* Utility */,
+				2A5F522F2661296B00241874 /* AppCompositionRoot */,
 				2A766AE126565B7800455E17 /* AppDelegate */,
 				2A766B042656762900455E17 /* ListModule */,
 				2A766AE626565BAD00455E17 /* HomeModule */,
@@ -218,6 +242,7 @@
 			children = (
 				2A766AAB2656374D00455E17 /* AppDelegate.swift */,
 				2A766AAD2656374D00455E17 /* SceneDelegate.swift */,
+				2A5F525A266150AF00241874 /* SceneDelegate+Navigation.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -432,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A766B002656738800455E17 /* UserDataModel.swift in Sources */,
+				2A5F523F2661430900241874 /* ControllerFactoryModule.swift in Sources */,
 				2A766B0D265678A900455E17 /* AuthServiceManager.swift in Sources */,
 				2A6ADD33265C056B0038807A /* ListViewController+Services.swift in Sources */,
 				2A6ADD08265BB1F80038807A /* ListViewModel.swift in Sources */,
@@ -442,6 +468,8 @@
 				2A89B07B26594772008C6220 /* ViewController+Services.swift in Sources */,
 				2A6ADD2E265BDB5A0038807A /* ListServiceAdapter.swift in Sources */,
 				2A6ADD14265BB3F20038807A /* ListTableViewCell.swift in Sources */,
+				2A5F5231266129AA00241874 /* AppCompositionRoot+ViewController.swift in Sources */,
+				2A5F525B266150AF00241874 /* SceneDelegate+Navigation.swift in Sources */,
 				2A766AAE2656374D00455E17 /* SceneDelegate.swift in Sources */,
 				2A6ADD1A265BCD950038807A /* ListViewController+TableViewDelegate.swift in Sources */,
 				2A6ADD1F265BCF0B0038807A /* ListCellViewModel.swift in Sources */,
@@ -558,7 +586,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -613,7 +641,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -631,6 +659,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3QCVS5M6Q4;
 				INFOPLIST_FILE = CleanArchitechture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,6 +679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3QCVS5M6Q4;
 				INFOPLIST_FILE = CleanArchitechture/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
