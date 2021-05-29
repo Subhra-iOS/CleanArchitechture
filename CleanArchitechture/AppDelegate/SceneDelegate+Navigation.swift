@@ -13,7 +13,7 @@ extension SceneDelegate: FactoryProtocol {
     func didUpdate(_ user: UserDataModel?){
         guard let model = user else { return }
         let _storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let _listVC = self.controllerFactory.creatListViewController(model, _storyboard)
+        let _listVC = controllerFactory.creatListViewController(model, _storyboard)
         self.compositionRoot.navigation.pushViewController(_listVC, animated: true)
     }
     
@@ -22,9 +22,7 @@ extension SceneDelegate: FactoryProtocol {
         let userAuth: AuthModel = AuthModel(email: "", pwd: "")
         let rootVC: ViewController = controllerFactory.creatRootViewController(userAuth, _storyboard)
         let navigationController: UINavigationController = UINavigationController(rootViewController: rootVC)
-        self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
-        return  AppCompositionRoot(navigation: navigationController)
+        return  AppCompositionRoot(navigation: navigationController, appWindow: self.window)
     }
     
     

@@ -19,9 +19,13 @@ protocol FactoryProtocol {
 public struct AppCompositionRoot{
    
     var navigation: UINavigationController!
+    private var appWindow: UIWindow?
     
-    init(navigation: UINavigationController) {
+    init(navigation: UINavigationController, appWindow: UIWindow?) {
         self.navigation = navigation
+        self.appWindow = appWindow
+        self.appWindow?.rootViewController = navigation
+        self.appWindow?.makeKeyAndVisible()
     }
     
 }
